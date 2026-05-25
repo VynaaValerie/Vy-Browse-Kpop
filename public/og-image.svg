@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#08060f"/>
+      <stop offset="50%" style="stop-color:#130a2a"/>
+      <stop offset="100%" style="stop-color:#08060f"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#ec4899"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="60%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <g opacity="0.04" stroke="#a855f7" stroke-width="1">
+    <line x1="0" y1="63" x2="1200" y2="63"/><line x1="0" y1="126" x2="1200" y2="126"/>
+    <line x1="0" y1="189" x2="1200" y2="189"/><line x1="0" y1="252" x2="1200" y2="252"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/><line x1="0" y1="378" x2="1200" y2="378"/>
+    <line x1="0" y1="441" x2="1200" y2="441"/><line x1="0" y1="504" x2="1200" y2="504"/>
+    <line x1="0" y1="567" x2="1200" y2="567"/>
+    <line x1="63" y1="0" x2="63" y2="630"/><line x1="126" y1="0" x2="126" y2="630"/>
+    <line x1="189" y1="0" x2="189" y2="630"/><line x1="252" y1="0" x2="252" y2="630"/>
+    <line x1="315" y1="0" x2="315" y2="630"/><line x1="378" y1="0" x2="378" y2="630"/>
+    <line x1="441" y1="0" x2="441" y2="630"/><line x1="504" y1="0" x2="504" y2="630"/>
+    <line x1="567" y1="0" x2="567" y2="630"/><line x1="630" y1="0" x2="630" y2="630"/>
+    <line x1="693" y1="0" x2="693" y2="630"/><line x1="756" y1="0" x2="756" y2="630"/>
+    <line x1="819" y1="0" x2="819" y2="630"/><line x1="882" y1="0" x2="882" y2="630"/>
+    <line x1="945" y1="0" x2="945" y2="630"/><line x1="1008" y1="0" x2="1008" y2="630"/>
+    <line x1="1071" y1="0" x2="1071" y2="630"/><line x1="1134" y1="0" x2="1134" y2="630"/>
+  </g>
+  <!-- Glow orbs -->
+  <circle cx="200" cy="200" r="220" fill="#7c3aed" opacity="0.08"/>
+  <circle cx="1000" cy="430" r="180" fill="#ec4899" opacity="0.06"/>
+  <!-- Logo box -->
+  <rect x="72" y="72" width="80" height="80" rx="18" fill="url(#accent)" opacity="0.9"/>
+  <text x="112" y="126" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="38" text-anchor="middle" fill="white">Vy</text>
+  <!-- Live badge -->
+  <rect x="72" y="192" width="180" height="34" rx="17" fill="rgba(168,85,247,0.15)" stroke="#a855f7" stroke-width="1" stroke-opacity="0.4"/>
+  <circle cx="92" cy="209" r="5" fill="#22c55e"/>
+  <text x="107" y="214" font-family="Arial,sans-serif" font-size="13" fill="#a855f7" font-weight="700" letter-spacing="1">REAL-TIME</text>
+  <!-- Main title -->
+  <text x="72" y="330" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="86" fill="white">KWave</text>
+  <text x="72" y="420" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="86" fill="url(#accent)">VyBrowse</text>
+  <!-- Subtitle -->
+  <text x="72" y="480" font-family="Arial,sans-serif" font-size="26" fill="#9d97b4">Mesin Pencari Berita K-pop Real-time untuk Indonesia</text>
+  <!-- Right side stats -->
+  <g transform="translate(820,160)">
+    <rect width="300" height="90" rx="14" fill="rgba(168,85,247,0.07)" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
+    <text x="20" y="38" font-family="Arial,sans-serif" font-size="13" fill="#5c5578" font-weight="700" letter-spacing="1">SUMBER LANGSUNG</text>
+    <text x="20" y="72" font-family="Arial Black,Arial,sans-serif" font-size="32" fill="white" font-weight="900">4+ Sumber</text>
+  </g>
+  <g transform="translate(820,280)">
+    <rect width="300" height="90" rx="14" fill="rgba(168,85,247,0.07)" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
+    <text x="20" y="38" font-family="Arial,sans-serif" font-size="13" fill="#5c5578" font-weight="700" letter-spacing="1">UPDATE OTOMATIS</text>
+    <text x="20" y="72" font-family="Arial Black,Arial,sans-serif" font-size="32" fill="white" font-weight="900">Tiap 5 Menit</text>
+  </g>
+  <g transform="translate(820,400)">
+    <rect width="300" height="90" rx="14" fill="rgba(168,85,247,0.07)" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
+    <text x="20" y="38" font-family="Arial,sans-serif" font-size="13" fill="#5c5578" font-weight="700" letter-spacing="1">KATEGORI BERITA</text>
+    <text x="20" y="72" font-family="Arial Black,Arial,sans-serif" font-size="32" fill="white" font-weight="900">7 Kategori</text>
+  </g>
+  <!-- Bottom bar -->
+  <rect x="0" y="590" width="1200" height="4" fill="url(#accent)" opacity="0.6"/>
+  <text x="72" y="620" font-family="Arial,sans-serif" font-size="18" fill="#5c5578">vybrowse.replit.app</text>
+  <text x="1128" y="620" font-family="Arial,sans-serif" font-size="18" fill="#5c5578" text-anchor="end">KWave Search Engine</text>
+</svg>

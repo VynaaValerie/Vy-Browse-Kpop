@@ -1,0 +1,51 @@
+{
+  "name": "VyBrowse — KWave Search Engine",
+  "short_name": "VyBrowse",
+  "description": "Mesin pencari berita K-pop real-time untuk Indonesia. Temukan comeback, MV, drama, konser, dan kabar idol terkini.",
+  "lang": "id",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#08060f",
+  "theme_color": "#a855f7",
+  "categories": ["news", "entertainment", "music"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.svg",
+      "sizes": "1200x630",
+      "type": "image/svg+xml",
+      "label": "VyBrowse KWave Search Engine"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Cari Berita K-pop",
+      "short_name": "Cari",
+      "description": "Cari berita K-pop terkini",
+      "url": "/?action=search",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Trending Sekarang",
+      "short_name": "Trending",
+      "description": "Lihat kata kunci K-pop yang sedang trending",
+      "url": "/api/trending",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Dokumentasi API",
+      "short_name": "API Docs",
+      "description": "Referensi lengkap VyBrowse API",
+      "url": "/apidoc",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    }
+  ]
+}

@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="id" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══ PRIMARY SEO ═══════════════════════════════════════════════════════ -->
+  <title>Dokumentasi API VyBrowse — REST API Berita K-pop Real-time | KWave</title>
+  <meta name="description" content="Dokumentasi lengkap REST API VyBrowse KWave Search Engine. API berita K-pop real-time tanpa autentikasi, siap digunakan untuk bot WhatsApp, bot Telegram, aplikasi, dan integrasi. Endpoint: /api/search, /api/news, /api/trending, /api/categories." />
+  <meta name="keywords" content="api kpop, rest api kpop, api berita kpop indonesia, bot whatsapp kpop, vybrowse api, kwave api, kpop news api, api berita korea gratis" />
+  <meta name="author" content="VyBrowse" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="language" content="Indonesian" />
+  <meta name="geo.region" content="ID" />
+  <link rel="canonical" href="https://vybrowse.replit.app/apidoc" />
+
+  <!-- ═══ OPEN GRAPH ═════════════════════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="VyBrowse KWave Search Engine" />
+  <meta property="og:title" content="Dokumentasi API VyBrowse — REST API Berita K-pop Gratis" />
+  <meta property="og:description" content="REST API berita K-pop real-time tanpa API key. Endpoint pencarian, trending, dan kategori. Siap untuk bot WhatsApp, Telegram, dan Discord." />
+  <meta property="og:url" content="https://vybrowse.replit.app/apidoc" />
+  <meta property="og:image" content="https://vybrowse.replit.app/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="VyBrowse API Documentation" />
+  <meta property="og:locale" content="id_ID" />
+
+  <!-- ═══ TWITTER CARD ═══════════════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dokumentasi API VyBrowse — REST API Berita K-pop Gratis" />
+  <meta name="twitter:description" content="REST API berita K-pop real-time tanpa API key. Cocok untuk bot WhatsApp, Telegram, dan Discord." />
+  <meta name="twitter:image" content="https://vybrowse.replit.app/og-image.svg" />
+
+  <!-- ═══ PWA & ICONS ════════════════════════════════════════════════════════ -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#a855f7" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="VyBrowse API" />
+  <meta name="application-name" content="VyBrowse" />
+
+  <!-- ═══ JSON-LD STRUCTURED DATA ═══════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://vybrowse.replit.app/apidoc#article",
+        "headline": "Dokumentasi REST API VyBrowse KWave Search Engine",
+        "description": "Panduan lengkap REST API berita K-pop real-time. Endpoint pencarian, berita terbaru, trending, dan kategori. Tanpa autentikasi, gratis.",
+        "url": "https://vybrowse.replit.app/apidoc",
+        "inLanguage": "id-ID",
+        "author": {
+          "@type": "Organization",
+          "name": "VyBrowse",
+          "url": "https://vybrowse.replit.app/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "VyBrowse",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://vybrowse.replit.app/favicon.svg"
+          }
+        },
+        "datePublished": "2025-01-01",
+        "dateModified": "2026-05-25",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "VyBrowse KWave Search Engine",
+          "url": "https://vybrowse.replit.app/"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://vybrowse.replit.app/apidoc#webpage",
+        "url": "https://vybrowse.replit.app/apidoc",
+        "name": "Dokumentasi API VyBrowse — REST API Berita K-pop Real-time",
+        "inLanguage": "id-ID",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Beranda",
+              "item": "https://vybrowse.replit.app/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Dokumentasi API",
+              "item": "https://vybrowse.replit.app/apidoc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@300;400;500;600&family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#08060f;--bg2:#0d0a1a;--bg3:#110e1f;--bg4:#16122a;
+      --purple:#a855f7;--violet:#7c3aed;--pink:#ec4899;--cyan:#06b6d4;
+      --green:#22c55e;--yellow:#eab308;--red:#ef4444;--orange:#f97316;
+      --border:rgba(168,85,247,0.15);--border2:rgba(168,85,247,0.35);
+      --t1:#f1f0f5;--t2:#9d97b4;--t3:#5c5578;
+      --sidebar-w:250px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden}
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-track{background:var(--bg2)}
+    ::-webkit-scrollbar-thumb{background:#2d1f52;border-radius:3px}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(168,85,247,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(168,85,247,0.03) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;z-index:0}
+
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;background:rgba(8,6,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nav-left{display:flex;align-items:center;gap:12px}
+    .nav-logo{font-family:'Orbitron',monospace;font-weight:700;font-size:16px;background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+    .nav-sep{color:var(--t3);font-size:14px}
+    .nav-title{font-size:13px;color:var(--t2);font-weight:500}
+    .nav-right{display:flex;align-items:center;gap:10px}
+    .nav-tag{background:rgba(168,85,247,0.12);border:1px solid var(--border2);color:var(--purple);font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:1.5px;text-transform:uppercase}
+    .nav-home{font-size:12px;color:var(--t2);text-decoration:none;border:1px solid var(--border);padding:4px 12px;border-radius:8px;transition:all 0.15s}
+    .nav-home:hover{border-color:var(--purple);color:var(--purple)}
+
+    /* LAYOUT */
+    .layout{display:flex;padding-top:58px;min-height:100vh;position:relative;z-index:1}
+
+    /* SIDEBAR */
+    .sidebar{position:fixed;top:58px;left:0;bottom:0;width:var(--sidebar-w);background:rgba(13,10,26,0.98);border-right:1px solid var(--border);overflow-y:auto;z-index:100;padding:1.25rem 0 3rem;scrollbar-width:thin}
+    .sidebar::-webkit-scrollbar{width:3px}
+    .sb-section{margin-bottom:1.5rem}
+    .sb-label{font-size:9px;font-weight:700;letter-spacing:2.5px;color:var(--t3);text-transform:uppercase;padding:0 1.1rem 0.5rem;display:flex;align-items:center;gap:6px}
+    .sb-label::after{content:'';flex:1;height:1px;background:var(--border);margin-left:4px}
+    .sb-link{display:flex;align-items:center;gap:8px;padding:7px 1.1rem;font-size:12.5px;color:var(--t2);text-decoration:none;transition:all 0.15s;border-left:2px solid transparent;line-height:1.3}
+    .sb-link:hover{color:var(--t1);background:rgba(168,85,247,0.05);border-left-color:rgba(168,85,247,0.4)}
+    .sb-link.active{color:var(--purple);background:rgba(168,85,247,0.07);border-left-color:var(--purple)}
+    .sb-link .badge{font-size:9px;font-weight:800;padding:1.5px 6px;border-radius:3px;margin-left:auto;letter-spacing:0.5px}
+    .get-b{background:rgba(34,197,94,0.15);color:#22c55e;border:1px solid rgba(34,197,94,0.2)}
+
+    /* CONTENT */
+    .content{margin-left:var(--sidebar-w);flex:1;padding:2rem 2.5rem 5rem;max-width:100%}
+    .content-inner{max-width:860px}
+
+    /* HERO */
+    .doc-hero{background:linear-gradient(135deg,rgba(124,58,237,0.07) 0%,rgba(236,72,153,0.04) 100%);border:1px solid var(--border);border-radius:20px;padding:2.2rem;margin-bottom:2.5rem;position:relative;overflow:hidden}
+    .doc-hero::after{content:'API';position:absolute;right:2rem;bottom:-1rem;font-family:'Orbitron',monospace;font-size:6rem;font-weight:900;color:rgba(168,85,247,0.04);pointer-events:none;user-select:none;line-height:1}
+    .doc-hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(168,85,247,0.1);border:1px solid var(--border2);color:var(--purple);font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;margin-bottom:0.9rem;letter-spacing:1.5px;text-transform:uppercase}
+    .doc-hero h1{font-family:'Orbitron',monospace;font-size:1.9rem;font-weight:900;background:linear-gradient(135deg,#fff 30%,var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.6rem;line-height:1.2}
+    .doc-hero p{color:var(--t2);font-size:14px;line-height:1.75;max-width:580px}
+    .base-url-box{display:inline-flex;align-items:center;gap:12px;background:rgba(8,6,15,0.7);border:1px solid var(--border2);padding:9px 16px;border-radius:10px;margin-top:1.2rem;font-family:'JetBrains Mono',monospace;font-size:13px;flex-wrap:wrap}
+    .base-url-label{color:var(--t3);font-size:11px;font-weight:600;font-family:'Inter',sans-serif;letter-spacing:0.5px}
+    .base-url-val{color:var(--cyan)}
+    .copy-url-btn{background:none;border:1px solid var(--border);color:var(--t3);font-size:10px;padding:2px 9px;border-radius:5px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.15s;margin-left:4px}
+    .copy-url-btn:hover{border-color:var(--purple);color:var(--purple)}
+
+    /* FEATURE CARDS */
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0.875rem;margin:1.5rem 0 2.5rem}
+    .feat-card{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:1.1rem}
+    .feat-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem}
+    .feat-card h3{font-size:13px;font-weight:600;color:var(--t1);margin-bottom:0.35rem}
+    .feat-card p{font-size:12px;color:var(--t2);line-height:1.6}
+
+    /* SECTION */
+    .section{margin-bottom:3rem;scroll-margin-top:75px}
+    .section-title{font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--t1);margin-bottom:1.1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+    .section-dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--pink));flex-shrink:0}
+
+    /* INFO BOX */
+    .info-box{background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.5rem;display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.65}
+    .info-box.warn{background:rgba(234,179,8,0.05);border-color:rgba(234,179,8,0.2)}
+    .info-box.info{background:rgba(6,182,212,0.05);border-color:rgba(6,182,212,0.2)}
+    .ib-icon{flex-shrink:0;margin-top:1px}
+    .ib-text{color:var(--t2)}
+    .ib-text strong{color:var(--t1)}
+
+    /* ENDPOINT CARD */
+    .ep-card{background:var(--bg3);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:2rem}
+    .ep-card:hover{border-color:var(--border2)}
+    .ep-header{display:flex;align-items:center;gap:12px;padding:1rem 1.3rem;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px}
+    .ep-method{font-size:10px;font-weight:800;padding:4px 12px;border-radius:6px;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+    .ep-method.GET{background:rgba(34,197,94,0.12);color:#22c55e;border:1px solid rgba(34,197,94,0.25)}
+    .ep-path{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--t1);font-weight:500;word-break:break-all}
+    .ep-tag{margin-left:auto;font-size:11px;color:var(--t3);font-style:italic}
+    .ep-body{padding:1.3rem}
+
+    /* PARAMS */
+    .sub-title{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--t3);text-transform:uppercase;margin-bottom:0.75rem;display:flex;align-items:center;gap:6px}
+    .sub-title::after{content:'';flex:1;height:1px;background:var(--border)}
+    table.params{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:1.75rem;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    table.params th{background:rgba(168,85,247,0.06);color:var(--t3);font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:9px 12px;text-align:left}
+    table.params td{padding:10px 12px;border-top:1px solid rgba(168,85,247,0.07);vertical-align:top;line-height:1.55}
+    table.params tr:hover td{background:rgba(168,85,247,0.03)}
+    .pn{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-weight:500;font-size:12.5px}
+    .pt{background:rgba(168,85,247,0.1);color:var(--purple);font-size:10px;padding:1.5px 7px;border-radius:4px;font-family:'JetBrains Mono',monospace;white-space:nowrap}
+    .pr{background:rgba(239,68,68,0.1);color:#ef4444;font-size:9.5px;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+    .po{background:rgba(100,116,139,0.1);color:var(--t3);font-size:9.5px;padding:2px 7px;border-radius:4px;font-weight:700;white-space:nowrap}
+    td.pd{color:var(--t2);font-size:12.5px}
+    td.pd code{background:rgba(168,85,247,0.1);color:var(--cyan);padding:1px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:11.5px}
+
+    /* CODE BLOCK */
+    .code-block{background:rgba(6,4,14,0.9);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:1.25rem}
+    .cb-header{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;border-bottom:1px solid var(--border);background:rgba(17,14,31,0.7)}
+    .cb-lang{font-size:10px;font-weight:700;color:var(--t3);letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+    .cb-lang-dot{width:7px;height:7px;border-radius:50%;background:var(--purple);display:inline-block}
+    .cb-actions{display:flex;align-items:center;gap:6px}
+    .copy-btn{background:none;border:1px solid var(--border);color:var(--t3);font-size:10px;padding:3px 10px;border-radius:5px;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;white-space:nowrap}
+    .copy-btn:hover{border-color:var(--purple);color:var(--purple)}
+    .copy-btn.ok{border-color:var(--green);color:var(--green)}
+    pre{overflow-x:auto;padding:1rem 1.25rem;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.8;tab-size:2;-webkit-overflow-scrolling:touch}
+    pre::-webkit-scrollbar{height:4px}
+    pre::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+    .kw{color:#c084fc}.str{color:#86efac}.num{color:#fcd34d}.key{color:#93c5fd}.cmt{color:#4a5568;font-style:italic}.url{color:#67e8f9}.op{color:#f9a8d4}
+
+    /* TRY IT BOX */
+    .try-box{background:rgba(168,85,247,0.04);border:1px dashed rgba(168,85,247,0.25);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .try-url{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);flex:1;min-width:200px;word-break:break-all}
+    .try-btn{background:linear-gradient(135deg,var(--violet),var(--pink));border:none;color:white;font-size:11px;font-weight:600;padding:6px 16px;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:all 0.15s;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+    .try-btn:hover{opacity:0.9;transform:translateY(-1px)}
+
+    /* RESPONSE SCHEMA */
+    .schema-box{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.875rem 1.1rem;margin-bottom:1rem;font-size:12.5px}
+    .schema-row{display:flex;align-items:flex-start;gap:10px;padding:5px 0;border-bottom:1px solid rgba(168,85,247,0.05)}
+    .schema-row:last-child{border-bottom:none}
+    .sf{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:12px;min-width:110px;flex-shrink:0}
+    .st{background:rgba(168,85,247,0.1);color:var(--purple);font-size:10px;padding:1px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;min-width:55px;text-align:center;flex-shrink:0;margin-top:1px}
+    .sd{color:var(--t2);font-size:12px;line-height:1.55}
+
+    /* STATUS CODES */
+    .status-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-top:0.5rem}
+    .sc-card{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:11px 14px;display:flex;align-items:flex-start;gap:10px}
+    .sc-code{font-family:'Orbitron',monospace;font-weight:700;font-size:13px;flex-shrink:0;min-width:38px}
+    .s200{color:#22c55e}.s400{color:#eab308}.s404{color:#f97316}.s429{color:#eab308}.s500{color:#ef4444}
+    .sc-info h4{font-size:12.5px;font-weight:600;color:var(--t1);margin-bottom:2px}
+    .sc-info p{font-size:11.5px;color:var(--t2);line-height:1.5}
+
+    /* CACHE TABLE */
+    table.cache-table{width:100%;border-collapse:collapse;border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:13px}
+    table.cache-table th{background:rgba(168,85,247,0.06);color:var(--t3);font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:9px 14px;text-align:left}
+    table.cache-table td{padding:10px 14px;border-top:1px solid rgba(168,85,247,0.07);color:var(--t2)}
+    table.cache-table td:first-child{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:12.5px}
+
+    /* TABS */
+    .tabs{display:flex;gap:4px;margin-bottom:0.875rem;flex-wrap:wrap}
+    .tab{background:none;border:1px solid var(--border);color:var(--t3);font-size:11.5px;padding:5px 14px;border-radius:7px;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;font-weight:500}
+    .tab.active{background:rgba(168,85,247,0.1);border-color:var(--purple);color:var(--purple)}
+    .tab-panel{display:none}.tab-panel.active{display:block}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      :root{--sidebar-w:0px}
+      .sidebar{display:none}
+      .content{margin-left:0;padding:1.5rem 1.25rem 4rem}
+    }
+    @media(max-width:600px){
+      .doc-hero h1{font-size:1.4rem}
+      .doc-hero{padding:1.5rem}
+      .ep-tag{display:none}
+      .cb-header{flex-wrap:wrap;gap:6px}
+      .feat-grid{grid-template-columns:1fr 1fr}
+      pre{font-size:11.5px}
+      table.params{font-size:12px}
+    }
+    @media(max-width:400px){
+      .content{padding:1.25rem 0.875rem 4rem}
+      .feat-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-left">
+    <a href="/" class="nav-logo">VyBrowse</a>
+    <span class="nav-sep">/</span>
+    <span class="nav-title">Referensi API</span>
+  </div>
+  <div class="nav-right">
+    <span class="nav-tag">v1.0</span>
+    <a href="/" class="nav-home">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="vertical-align:-1px;margin-right:4px"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Beranda
+    </a>
+  </div>
+</nav>
+
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-section">
+      <div class="sb-label">Mulai di sini</div>
+      <a href="#overview" class="sb-link active">Ringkasan</a>
+      <a href="#base-url" class="sb-link">URL Dasar</a>
+      <a href="#authentication" class="sb-link">Autentikasi</a>
+      <a href="#rate-limits" class="sb-link">Rate Limit &amp; Cache</a>
+      <a href="#response-format" class="sb-link">Format Respons</a>
+      <a href="#errors" class="sb-link">Penanganan Error</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-label">Endpoint</div>
+      <a href="#ep-search" class="sb-link">
+        <span class="badge get-b">GET</span>
+        /api/search
+      </a>
+      <a href="#ep-news" class="sb-link">
+        <span class="badge get-b">GET</span>
+        /api/news
+      </a>
+      <a href="#ep-trending" class="sb-link">
+        <span class="badge get-b">GET</span>
+        /api/trending
+      </a>
+      <a href="#ep-categories" class="sb-link">
+        <span class="badge get-b">GET</span>
+        /api/categories
+      </a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-label">Skema</div>
+      <a href="#schema-article" class="sb-link">Objek Artikel</a>
+      <a href="#schema-trending" class="sb-link">Objek Trending</a>
+      <a href="#status-codes" class="sb-link">Kode HTTP Status</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-label">Integrasi</div>
+      <a href="#code-js" class="sb-link">JavaScript / Fetch</a>
+      <a href="#code-whatsapp" class="sb-link">Bot WhatsApp</a>
+      <a href="#code-python" class="sb-link">Python</a>
+      <a href="#code-curl" class="sb-link">Referensi cURL</a>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+    <div class="content-inner">
+
+      <!-- HERO -->
+      <div class="doc-hero" id="overview">
+        <div class="doc-hero-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          REST API &mdash; v1.0 &mdash; Publik
+        </div>
+        <h1>VyBrowse API</h1>
+        <p>API berita K-pop real-time yang menggerakkan KWave Search Engine. Mengambil data dari Soompi, Koreaboo, dan Google News secara langsung. Respons JSON bersih — tanpa autentikasi. Siap digunakan untuk bot WhatsApp, bot Discord, website, dan berbagai integrasi lainnya.</p>
+        <div class="base-url-box">
+          <span class="base-url-label">URL DASAR</span>
+          <code class="base-url-val" id="baseUrlDisplay">https://your-domain.vercel.app</code>
+          <button class="copy-url-btn" onclick="copyBaseUrl()">Salin</button>
+        </div>
+      </div>
+
+      <!-- FEATURE CARDS -->
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon" style="background:rgba(34,197,94,0.1)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Real-time</h3>
+          <p>Berita langsung dari 3+ sumber, di-scrape sesuai permintaan dengan cache 5 menit.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:rgba(168,85,247,0.1)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3>JSON Bersih</h3>
+          <p>Skema konsisten, teks sudah di-decode, tanpa entitas HTML.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:rgba(6,182,212,0.1)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Tanpa Auth</h3>
+          <p>Semua endpoint publik. Tidak perlu API key apapun.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:rgba(236,72,153,0.1)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Siap untuk Bot</h3>
+          <p>Dioptimalkan untuk bot WhatsApp, Telegram, dan Discord.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:rgba(234,179,8,0.1)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+          </div>
+          <h3>Trending</h3>
+          <p>12 kata kunci K-pop paling trending, diperbarui tiap 2 menit.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon" style="background:rgba(249,115,22,0.1)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          </div>
+          <h3>Cache Cerdas</h3>
+          <p>Cache sisi server mencegah scraping berulang yang tidak perlu.</p>
+        </div>
+      </div>
+
+      <!-- BASE URL -->
+      <section class="section" id="base-url">
+        <h2 class="section-title"><span class="section-dot"></span>URL Dasar</h2>
+        <div class="code-block">
+          <div class="cb-header">
+            <span class="cb-lang"><span class="cb-lang-dot"></span>Produksi &amp; Lokal</span>
+          </div>
+          <pre><span class="url">https://your-domain.vercel.app</span>          <span class="cmt"># Setelah deploy ke Vercel</span>
+<span class="url">http://localhost:5000</span>                      <span class="cmt"># Development lokal</span></pre>
+        </div>
+        <div class="info-box info">
+          <span class="ib-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span>
+          <span class="ib-text">Semua endpoint mendukung <strong>CORS</strong> dari origin mana saja. Tinggal tambahkan path endpoint ke URL dasar. Semua respons bertipe <code style="background:rgba(6,182,212,0.1);color:#67e8f9;padding:1px 5px;border-radius:3px;font-family:monospace;font-size:11px">Content-Type: application/json</code>.</span>
+        </div>
+      </section>
+
+      <!-- AUTH -->
+      <section class="section" id="authentication">
+        <h2 class="section-title"><span class="section-dot"></span>Autentikasi</h2>
+        <div class="info-box">
+          <span class="ib-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <span class="ib-text"><strong>Tidak perlu autentikasi.</strong> Semua endpoint API sepenuhnya publik. Bisa langsung dipanggil dari kode frontend, bot, script, atau HTTP client apapun — tanpa header, token, atau API key.</span>
+        </div>
+        <div class="code-block">
+          <div class="cb-header">
+            <span class="cb-lang"><span class="cb-lang-dot" style="background:#22c55e"></span>Contoh — Tanpa Auth</span>
+            <button class="copy-btn" onclick="copyBlock(this)">Salin</button>
+          </div>
+          <pre><span class="cmt"># Tidak perlu header Authorization</span>
+curl <span class="str">"https://your-domain.vercel.app/api/trending"</span>
+
+<span class="cmt"># CORS terbuka — bisa dipanggil langsung dari browser</span>
+fetch(<span class="str">'/api/news'</span>).then(r => r.json()).then(console.log);</pre>
+        </div>
+      </section>
+
+      <!-- RATE LIMITS -->
+      <section class="section" id="rate-limits">
+        <h2 class="section-title"><span class="section-dot"></span>Rate Limit &amp; Cache</h2>
+        <p style="color:var(--t2);font-size:13.5px;margin-bottom:1.2rem;line-height:1.7">Respons di-cache di sisi server. Permintaan identik dalam jendela cache akan langsung dikembalikan tanpa memicu scraping baru. Interval polling yang disarankan tercantum di bawah.</p>
+        <table class="cache-table">
+          <thead><tr><th>Endpoint</th><th>TTL Cache</th><th>Interval Poll Minimum</th><th>Keterangan</th></tr></thead>
+          <tbody>
+            <tr><td>/api/search</td><td style="color:var(--yellow)">5 menit</td><td style="color:var(--t2)">Sesuai permintaan pengguna</td><td style="color:var(--t2)">Key: query + kategori + halaman</td></tr>
+            <tr><td>/api/news</td><td style="color:var(--yellow)">3 menit</td><td style="color:var(--t2)">Setiap 3 menit</td><td style="color:var(--t2)">Key: kategori + halaman</td></tr>
+            <tr><td>/api/trending</td><td style="color:var(--yellow)">2 menit</td><td style="color:var(--t2)">Setiap 2 menit</td><td style="color:var(--t2)">Di-refresh otomatis oleh frontend</td></tr>
+            <tr><td>/api/categories</td><td style="color:var(--green)">Statis</td><td style="color:var(--t2)">Sekali saja</td><td style="color:var(--t2)">Cache di sisi klien</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- RESPONSE FORMAT -->
+      <section class="section" id="response-format">
+        <h2 class="section-title"><span class="section-dot"></span>Format Respons</h2>
+        <p style="color:var(--t2);font-size:13.5px;margin-bottom:1.2rem;line-height:1.7">Setiap respons adalah objek JSON. Field <code style="background:rgba(168,85,247,0.1);color:var(--cyan);padding:1px 5px;border-radius:3px;font-family:monospace;font-size:11.5px">success</code> selalu ada. Saat terjadi error, field <code style="background:rgba(168,85,247,0.1);color:var(--cyan);padding:1px 5px;border-radius:3px;font-family:monospace;font-size:11.5px">error</code> dan <code style="background:rgba(168,85,247,0.1);color:var(--cyan);padding:1px 5px;border-radius:3px;font-family:monospace;font-size:11.5px">code</code> disertakan.</p>
+        <div class="code-block">
+          <div class="cb-header">
+            <span class="cb-lang"><span class="cb-lang-dot"></span>Respons sukses</span>
+            <button class="copy-btn" onclick="copyBlock(this)">Salin</button>
+          </div>
+          <pre>{
+  <span class="key">"success"</span>: <span class="kw">true</span>,
+  <span class="key">"page"</span>: <span class="num">1</span>,
+  <span class="key">"perPage"</span>: <span class="num">12</span>,
+  <span class="key">"total"</span>: <span class="num">28</span>,
+  <span class="key">"hasMore"</span>: <span class="kw">true</span>,
+  <span class="key">"timestamp"</span>: <span class="str">"2026-05-21T10:22:00.000Z"</span>,
+  <span class="key">"data"</span>: [ <span class="cmt">/* array objek Artikel */</span> ]
+}</pre>
+        </div>
+        <div class="code-block">
+          <div class="cb-header">
+            <span class="cb-lang"><span class="cb-lang-dot" style="background:#ef4444"></span>Respons error</span>
+            <button class="copy-btn" onclick="copyBlock(this)">Salin</button>
+          </div>
+          <pre>{
+  <span class="key">"success"</span>: <span class="kw">false</span>,
+  <span class="key">"error"</span>: <span class="str">"Parameter \"q\" atau \"category\" wajib diisi."</span>,
+  <span class="key">"code"</span>: <span class="num">400</span>
+}</pre>
+        </div>
+      </section>
+
+      <!-- ======================== ENDPOINTS ======================== -->
+
+      <!-- SEARCH -->
+      <section class="section" id="ep-search">
+        <h2 class="section-title"><span class="section-dot"></span>Cari Berita</h2>
+        <div class="ep-card">
+          <div class="ep-header">
+            <span class="ep-method GET">GET</span>
+            <code class="ep-path">/api/search</code>
+            <span class="ep-tag">Cari berita K-pop berdasarkan kata kunci</span>
+          </div>
+          <div class="ep-body">
+
+            <div class="info-box warn">
+              <span class="ib-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+              <span class="ib-text">Minimal salah satu dari <code style="background:rgba(234,179,8,0.1);color:#fcd34d;padding:1px 5px;border-radius:3px;font-family:monospace;font-size:11px">q</code> atau <code style="background:rgba(234,179,8,0.1);color:#fcd34d;padding:1px 5px;border-radius:3px;font-family:monospace;font-size:11px">category</code> harus diisi.</span>
+            </div>
+
+            <p class="sub-title">Parameter Query</p>
+            <table class="params">
+              <thead><tr><th>Parameter</th><th>Tipe</th><th>Wajib</th><th>Deskripsi</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><span class="pn">q</span></td>
+                  <td><span class="pt">string</span></td>
+                  <td><span class="pr">Wajib*</span></td>
+                  <td class="pd">Kata kunci pencarian. Contoh: <code>aespa</code>, <code>BTS comeback</code>, <code>BLACKPINK MV</code></td>
+                </tr>
+                <tr>
+                  <td><span class="pn">category</span></td>
+                  <td><span class="pt">string</span></td>
+                  <td><span class="po">Opsional</span></td>
+                  <td class="pd">Filter kategori: <code>Comeback</code> <code>MV</code> <code>Drama</code> <code>Idol</code> <code>Concert</code> <code>Scandal</code> <code>Fashion</code></td>
+                </tr>
+                <tr>
+                  <td><span class="pn">page</span></td>
+                  <td><span class="pt">integer</span></td>
+                  <td><span class="po">Opsional</span></td>
+                  <td class="pd">Nomor halaman untuk paginasi. Default: <code>1</code>. Cek field <code>hasMore</code> di respons untuk mengetahui apakah ada halaman berikutnya.</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="try-box">
+              <span class="try-url">/api/search?q=aespa</span>
+              <a class="try-btn" href="/api/search?q=aespa" target="_blank">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Coba langsung
+              </a>
+            </div>
+
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(this,'search-ex')">Contoh URL</button>
+              <button class="tab" onclick="switchTab(this,'search-curl')">cURL</button>
+              <button class="tab" onclick="switchTab(this,'search-js')">JavaScript</button>
+              <button class="tab" onclick="switchTab(this,'search-resp')">Respons JSON</button>
+            </div>
+
+            <div id="search-ex" class="tab-panel active">
+              <div class="code-block">
+                <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot"></span>Contoh URL</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+                <pre><span class="cmt"># Pencarian kata kunci dasar</span>
+GET /api/search?q=aespa
+
+<span class="cmt"># Kata kunci + filter kategori</span>
+GET /api/search?q=BTS&category=Concert
+
+<span class="cmt"># MV BLACKPINK, halaman 2</span>
+GET /api/search?q=BLACKPINK&category=MV&page=2
+
+<span class="cmt"># Hanya kategori — tanpa kata kunci</span>
+GET /api/search?category=Comeback&page=1
+
+<span class="cmt"># URL lengkap</span>
+https://your-domain.vercel.app/api/search?q=NewJeans&category=Idol</pre>
+              </div>
+            </div>
+
+            <div id="search-curl" class="tab-panel">
+              <div class="code-block">
+                <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#22c55e"></span>cURL</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+                <pre><span class="cmt"># Cari berdasarkan kata kunci</span>
+curl -X GET \
+  <span class="str">"https://your-domain.vercel.app/api/search?q=aespa"</span> \
+  -H <span class="str">"Accept: application/json"</span>
+
+<span class="cmt"># Dengan kategori dan paginasi</span>
+curl -X GET \
+  <span class="str">"https://your-domain.vercel.app/api/search?q=BTS&category=Concert&page=1"</span>
+
+<span class="cmt"># Pretty-print JSON dengan jq</span>
+curl -s <span class="str">"https://your-domain.vercel.app/api/search?q=aespa"</span> | jq .</pre>
+              </div>
+            </div>
+
+            <div id="search-js" class="tab-panel">
+              <div class="code-block">
+                <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#fcd34d"></span>JavaScript (Fetch API)</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+                <pre><span class="cmt">// Pencarian dasar</span>
+<span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">'/api/search?q=aespa'</span>);
+<span class="kw">const</span> data = <span class="kw">await</span> res.json();
+
+<span class="kw">if</span> (data.success) {
+  data.data.forEach(article => {
+    console.log(article.title);    <span class="cmt">// "aespa Tops Charts..."</span>
+    console.log(article.url);      <span class="cmt">// "https://soompi.com/..."</span>
+    console.log(article.category); <span class="cmt">// "Comeback"</span>
+    console.log(article.timeAgo);  <span class="cmt">// "2h ago"</span>
+  });
+}
+
+<span class="cmt">// Fungsi pencarian dengan parameter</span>
+<span class="kw">async function</span> cariKpop(query, category = <span class="str">''</span>, page = <span class="num">1</span>) {
+  <span class="kw">const</span> params = <span class="kw">new</span> URLSearchParams({ q: query, category, page });
+  <span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">`/api/search?${params}`</span>);
+  <span class="kw">return</span> res.json();
+}
+
+<span class="cmt">// Infinite scroll — muat halaman berikutnya</span>
+<span class="kw">let</span> halaman = <span class="num">1</span>;
+<span class="kw">async function</span> muatLebih() {
+  <span class="kw">const</span> data = <span class="kw">await</span> cariKpop(<span class="str">'BLACKPINK'</span>, <span class="str">''</span>, ++halaman);
+  <span class="kw">if</span> (!data.hasMore) console.log(<span class="str">'Tidak ada halaman lagi'</span>);
+  <span class="kw">return</span> data.data;
+}</pre>
+              </div>
+            </div>
+
+            <div id="search-resp" class="tab-panel">
+              <div class="code-block">
+                <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#22c55e"></span>Respons JSON — 200 OK</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+                <pre>{
+  <span class="key">"success"</span>: <span class="kw">true</span>,
+  <span class="key">"query"</span>: <span class="str">"aespa"</span>,
+  <span class="key">"category"</span>: <span class="kw">null</span>,
+  <span class="key">"page"</span>: <span class="num">1</span>,
+  <span class="key">"perPage"</span>: <span class="num">12</span>,
+  <span class="key">"total"</span>: <span class="num">24</span>,
+  <span class="key">"hasMore"</span>: <span class="kw">true</span>,
+  <span class="key">"timestamp"</span>: <span class="str">"2026-05-21T10:22:00.000Z"</span>,
+  <span class="key">"data"</span>: [
+    {
+      <span class="key">"id"</span>:          <span class="str">"k7x2m9p"</span>,
+      <span class="key">"title"</span>:       <span class="str">"aespa Tops Charts With Latest Comeback 'Whiplash'"</span>,
+      <span class="key">"description"</span>: <span class="str">"aespa has taken the world by storm with their newest release."</span>,
+      <span class="key">"thumbnail"</span>:   <span class="str">"https://cdn.soompi.com/images/aespa-whiplash.jpg"</span>,
+      <span class="key">"url"</span>:         <span class="str">"https://www.soompi.com/article/aespa-whiplash"</span>,
+      <span class="key">"source"</span>:      <span class="str">"Soompi"</span>,
+      <span class="key">"sourceIcon"</span>:  <span class="str">"S"</span>,
+      <span class="key">"category"</span>:    <span class="str">"Comeback"</span>,
+      <span class="key">"date"</span>:        <span class="str">"2026-05-21T08:00:00.000Z"</span>,
+      <span class="key">"timeAgo"</span>:     <span class="str">"2h ago"</span>
+    }
+  ]
+}</pre>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- NEWS -->
+      <section class="section" id="ep-news">
+        <h2 class="section-title"><span class="section-dot"></span>Feed Berita Terbaru</h2>
+        <div class="ep-card">
+          <div class="ep-header">
+            <span class="ep-method GET">GET</span>
+            <code class="ep-path">/api/news</code>
+            <span class="ep-tag">Berita K-pop terbaru, tanpa query</span>
+          </div>
+          <div class="ep-body">
+
+            <p style="color:var(--t2);font-size:13.5px;margin-bottom:1.2rem;line-height:1.7">Mengembalikan feed berita K-pop terbaru. Tidak perlu kata kunci pencarian — cocok untuk halaman utama, feed seperti RSS, dan widget berita yang di-refresh otomatis.</p>
+
+            <p class="sub-title">Parameter Query</p>
+            <table class="params">
+              <thead><tr><th>Parameter</th><th>Tipe</th><th>Wajib</th><th>Deskripsi</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><span class="pn">category</span></td>
+                  <td><span class="pt">string</span></td>
+                  <td><span class="po">Opsional</span></td>
+                  <td class="pd">Filter kategori: <code>Comeback</code> <code>MV</code> <code>Drama</code> <code>Idol</code> <code>Concert</code> <code>Scandal</code> <code>Fashion</code>. Kosongkan untuk semua kategori.</td>
+                </tr>
+                <tr>
+                  <td><span class="pn">page</span></td>
+                  <td><span class="pt">integer</span></td>
+                  <td><span class="po">Opsional</span></td>
+                  <td class="pd">Nomor halaman. Default: <code>1</code></td>
+                </tr>
+                <tr>
+                  <td><span class="pn">limit</span></td>
+                  <td><span class="pt">integer</span></td>
+                  <td><span class="po">Opsional</span></td>
+                  <td class="pd">Hasil per halaman. Default: <code>12</code>. Maksimal disarankan: <code>30</code></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="try-box">
+              <span class="try-url">/api/news?category=Comeback&limit=5</span>
+              <a class="try-btn" href="/api/news?category=Comeback&limit=5" target="_blank">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Coba langsung
+              </a>
+            </div>
+
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(this,'news-curl')">cURL</button>
+              <button class="tab" onclick="switchTab(this,'news-js')">JavaScript</button>
+              <button class="tab" onclick="switchTab(this,'news-resp')">Respons JSON</button>
+            </div>
+
+            <div id="news-curl" class="tab-panel active">
+              <div class="code-block">
+                <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#22c55e"></span>cURL</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+                <pre><span class="cmt"># Semua berita terbaru (halaman pertama)</span>
+curl -s <span class="str">"https://your-domain.vercel.app/api/news"</span>
+
+<span class="cmt"># Filter kategori Comeback, 5 hasil</span>
+curl -s <span class="str">"https://your-domain.vercel.app/api/news?category=Comeback&limit=5"</span>
+
+<span class="cmt"># Paginasi — halaman 2 berita MV</span>
+curl -s <span class="str">"https://your-domain.vercel.app/api/news?category=MV&page=2&limit=10"</span></pre>
+              </div>
+            </div>
+
+            <div id="news-js" class="tab-panel">
+              <div class="code-block">
+                <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#fcd34d"></span>JavaScript</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+                <pre><span class="cmt">// Ambil semua berita terbaru</span>
+<span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">'/api/news'</span>);
+<span class="kw">const</span> { data } = <span class="kw">await</span> res.json();
+
+<span class="cmt">// Kategori Comeback, 5 hasil</span>
+<span class="kw">const</span> comeback = <span class="kw">await</span> fetch(<span class="str">'/api/news?category=Comeback&limit=5'</span>)
+  .then(r => r.json());
+
+<span class="cmt">// Auto-refresh setiap 3 menit (sesuai TTL cache)</span>
+setInterval(<span class="kw">async</span> () => {
+  <span class="kw">const</span> fresh = <span class="kw">await</span> fetch(<span class="str">'/api/news'</span>).then(r => r.json());
+  tampilkanBerita(fresh.data);
+}, <span class="num">3</span> * <span class="num">60</span> * <span class="num">1000</span>);</pre>
+              </div>
+            </div>
+
+            <div id="news-resp" class="tab-panel">
+              <div class="code-block">
+                <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#22c55e"></span>Respons JSON — 200 OK</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+                <pre>{
+  <span class="key">"success"</span>:   <span class="kw">true</span>,
+  <span class="key">"category"</span>:  <span class="str">"Comeback"</span>,
+  <span class="key">"page"</span>:       <span class="num">1</span>,
+  <span class="key">"perPage"</span>:    <span class="num">5</span>,
+  <span class="key">"total"</span>:      <span class="num">18</span>,
+  <span class="key">"hasMore"</span>:    <span class="kw">true</span>,
+  <span class="key">"timestamp"</span>:  <span class="str">"2026-05-21T10:30:00.000Z"</span>,
+  <span class="key">"data"</span>: [
+    {
+      <span class="key">"id"</span>:          <span class="str">"a4bc8xyz"</span>,
+      <span class="key">"title"</span>:       <span class="str">"IVE Announces October Comeback With 3rd Mini Album"</span>,
+      <span class="key">"description"</span>: <span class="str">"IVE has officially confirmed their return with a brand new mini album."</span>,
+      <span class="key">"thumbnail"</span>:   <span class="str">"https://cdn.koreaboo.com/images/ive-comeback.jpg"</span>,
+      <span class="key">"url"</span>:         <span class="str">"https://www.koreaboo.com/news/ive-comeback-2026"</span>,
+      <span class="key">"source"</span>:      <span class="str">"Koreaboo"</span>,
+      <span class="key">"sourceIcon"</span>:  <span class="str">"K"</span>,
+      <span class="key">"category"</span>:    <span class="str">"Comeback"</span>,
+      <span class="key">"date"</span>:        <span class="str">"2026-05-21T06:15:00.000Z"</span>,
+      <span class="key">"timeAgo"</span>:     <span class="str">"4h ago"</span>
+    }
+  ]
+}</pre>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- TRENDING -->
+      <section class="section" id="ep-trending">
+        <h2 class="section-title"><span class="section-dot"></span>Kata Kunci Trending</h2>
+        <div class="ep-card">
+          <div class="ep-header">
+            <span class="ep-method GET">GET</span>
+            <code class="ep-path">/api/trending</code>
+            <span class="ep-tag">12 kata kunci K-pop paling trending</span>
+          </div>
+          <div class="ep-body">
+            <p style="color:var(--t2);font-size:13.5px;margin-bottom:1.2rem;line-height:1.7">Mengembalikan 12 kata kunci K-pop yang sedang trending beserta peringkat, arah tren, dan perkiraan jumlah pencarian. Tidak perlu parameter. Diperbarui setiap 2 menit.</p>
+
+            <div class="try-box">
+              <span class="try-url">/api/trending</span>
+              <a class="try-btn" href="/api/trending" target="_blank">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Coba langsung
+              </a>
+            </div>
+
+            <div class="tabs">
+              <button class="tab active" onclick="switchTab(this,'trend-curl')">cURL</button>
+              <button class="tab" onclick="switchTab(this,'trend-js')">JavaScript</button>
+              <button class="tab" onclick="switchTab(this,'trend-py')">Python</button>
+              <button class="tab" onclick="switchTab(this,'trend-resp')">Respons JSON</button>
+            </div>
+
+            <div id="trend-curl" class="tab-panel active">
+              <div class="code-block">
+                <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#22c55e"></span>cURL</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+                <pre>curl -s <span class="str">"https://your-domain.vercel.app/api/trending"</span>
+
+<span class="cmt"># Pretty print dengan jq</span>
+curl -s <span class="str">"https://your-domain.vercel.app/api/trending"</span> | jq <span class="str">'.data[] | "\(.rank). \(.keyword) — \(.count) mention"'</span></pre>
+              </div>
+            </div>
+
+            <div id="trend-js" class="tab-panel">
+              <div class="code-block">
+                <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#fcd34d"></span>JavaScript</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+                <pre><span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">'/api/trending'</span>);
+<span class="kw">const</span> { data, updatedAt } = <span class="kw">await</span> res.json();
+
+console.log(<span class="str">`Diperbarui: ${updatedAt}`</span>);
+data.forEach(t => {
+  <span class="kw">const</span> panah = t.trend === <span class="str">'up'</span> ? <span class="str">'↑'</span> : <span class="str">'→'</span>;
+  console.log(<span class="str">`#${t.rank} ${t.keyword} ${panah} ${t.count.toLocaleString('id-ID')}`</span>);
+});</pre>
+              </div>
+            </div>
+
+            <div id="trend-py" class="tab-panel">
+              <div class="code-block">
+                <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#86efac"></span>Python</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+                <pre><span class="kw">import</span> requests
+
+res = requests.get(<span class="str">'https://your-domain.vercel.app/api/trending'</span>)
+data = res.json()
+
+<span class="kw">for</span> t <span class="kw">in</span> data[<span class="str">'data'</span>]:
+    panah = <span class="str">'↑'</span> <span class="kw">if</span> t[<span class="str">'trend'</span>] == <span class="str">'up'</span> <span class="kw">else</span> <span class="str">'→'</span>
+    print(<span class="str">f"#{t['rank']} {t['keyword']} {panah} {t['count']:,}"</span>)</pre>
+              </div>
+            </div>
+
+            <div id="trend-resp" class="tab-panel">
+              <div class="code-block">
+                <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#22c55e"></span>Respons JSON — 200 OK</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+                <pre>{
+  <span class="key">"success"</span>:   <span class="kw">true</span>,
+  <span class="key">"updatedAt"</span>: <span class="str">"2026-05-21T10:22:00.000Z"</span>,
+  <span class="key">"data"</span>: [
+    { <span class="key">"rank"</span>: <span class="num">1</span>, <span class="key">"keyword"</span>: <span class="str">"aespa"</span>,     <span class="key">"trend"</span>: <span class="str">"up"</span>,     <span class="key">"count"</span>: <span class="num">48293</span> },
+    { <span class="key">"rank"</span>: <span class="num">2</span>, <span class="key">"keyword"</span>: <span class="str">"BTS"</span>,       <span class="key">"trend"</span>: <span class="str">"stable"</span>, <span class="key">"count"</span>: <span class="num">41022</span> },
+    { <span class="key">"rank"</span>: <span class="num">3</span>, <span class="key">"keyword"</span>: <span class="str">"BLACKPINK"</span>, <span class="key">"trend"</span>: <span class="str">"up"</span>,     <span class="key">"count"</span>: <span class="num">38755</span> },
+    <span class="cmt">/* ... 9 item lainnya */</span>
+  ]
+}</pre>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORIES -->
+      <section class="section" id="ep-categories">
+        <h2 class="section-title"><span class="section-dot"></span>Daftar Kategori</h2>
+        <div class="ep-card">
+          <div class="ep-header">
+            <span class="ep-method GET">GET</span>
+            <code class="ep-path">/api/categories</code>
+            <span class="ep-tag">Data statis — cache di sisi klien</span>
+          </div>
+          <div class="ep-body">
+            <p style="color:var(--t2);font-size:13.5px;margin-bottom:1.2rem">Mengembalikan 7 kategori berita yang tersedia. Ini adalah data statis — cukup fetch sekali lalu cache di klien.</p>
+
+            <div class="try-box">
+              <span class="try-url">/api/categories</span>
+              <a class="try-btn" href="/api/categories" target="_blank">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Coba langsung
+              </a>
+            </div>
+
+            <div class="code-block">
+              <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#22c55e"></span>Respons JSON — 200 OK</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+              <pre>{
+  <span class="key">"success"</span>: <span class="kw">true</span>,
+  <span class="key">"data"</span>: [
+    { <span class="key">"name"</span>: <span class="str">"Comeback"</span>, <span class="key">"slug"</span>: <span class="str">"comeback"</span> },
+    { <span class="key">"name"</span>: <span class="str">"MV"</span>,       <span class="key">"slug"</span>: <span class="str">"mv"</span>       },
+    { <span class="key">"name"</span>: <span class="str">"Drama"</span>,   <span class="key">"slug"</span>: <span class="str">"drama"</span>   },
+    { <span class="key">"name"</span>: <span class="str">"Idol"</span>,    <span class="key">"slug"</span>: <span class="str">"idol"</span>    },
+    { <span class="key">"name"</span>: <span class="str">"Concert"</span>, <span class="key">"slug"</span>: <span class="str">"concert"</span> },
+    { <span class="key">"name"</span>: <span class="str">"Scandal"</span>, <span class="key">"slug"</span>: <span class="str">"scandal"</span> },
+    { <span class="key">"name"</span>: <span class="str">"Fashion"</span>, <span class="key">"slug"</span>: <span class="str">"fashion"</span> }
+  ]
+}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ARTICLE SCHEMA -->
+      <section class="section" id="schema-article">
+        <h2 class="section-title"><span class="section-dot"></span>Skema Objek Artikel</h2>
+        <p style="color:var(--t2);font-size:13.5px;margin-bottom:1.2rem;line-height:1.7">Setiap item dalam array <code style="background:rgba(168,85,247,0.1);color:var(--cyan);padding:1px 5px;border-radius:3px;font-family:monospace;font-size:11.5px">data</code> pada endpoint pencarian dan berita adalah objek Artikel.</p>
+        <div class="schema-box">
+          <div class="schema-row"><span class="sf">id</span><span class="st">string</span><span class="sd">ID unik artikel (alfanumerik acak, 9 karakter)</span></div>
+          <div class="schema-row"><span class="sf">title</span><span class="st">string</span><span class="sd">Judul artikel, sudah di-decode HTML entity, teks biasa bersih</span></div>
+          <div class="schema-row"><span class="sf">description</span><span class="st">string</span><span class="sd">Ringkasan atau kutipan singkat, maks ~300 karakter, teks biasa</span></div>
+          <div class="schema-row"><span class="sf">thumbnail</span><span class="st">string</span><span class="sd">URL lengkap gambar cover (JPG/PNG). Bisa string kosong jika tidak tersedia</span></div>
+          <div class="schema-row"><span class="sf">url</span><span class="st">string</span><span class="sd">URL artikel asli di sumber (Soompi, Koreaboo, dll.)</span></div>
+          <div class="schema-row"><span class="sf">source</span><span class="st">string</span><span class="sd">Nama penerbit (contoh: "Soompi", "Koreaboo", "Deadline")</span></div>
+          <div class="schema-row"><span class="sf">sourceIcon</span><span class="st">string</span><span class="sd">Satu huruf kapital mewakili sumber (untuk fallback ikon)</span></div>
+          <div class="schema-row"><span class="sf">category</span><span class="st">string</span><span class="sd">Salah satu dari: <code style="background:rgba(168,85,247,0.1);color:var(--cyan);padding:1px 4px;border-radius:3px;font-size:11px">Comeback</code> <code style="background:rgba(168,85,247,0.1);color:var(--cyan);padding:1px 4px;border-radius:3px;font-size:11px">MV</code> <code style="background:rgba(168,85,247,0.1);color:var(--cyan);padding:1px 4px;border-radius:3px;font-size:11px">Drama</code> <code style="background:rgba(168,85,247,0.1);color:var(--cyan);padding:1px 4px;border-radius:3px;font-size:11px">Idol</code> <code style="background:rgba(168,85,247,0.1);color:var(--cyan);padding:1px 4px;border-radius:3px;font-size:11px">Concert</code> <code style="background:rgba(168,85,247,0.1);color:var(--cyan);padding:1px 4px;border-radius:3px;font-size:11px">Scandal</code> <code style="background:rgba(168,85,247,0.1);color:var(--cyan);padding:1px 4px;border-radius:3px;font-size:11px">Fashion</code></span></div>
+          <div class="schema-row"><span class="sf">date</span><span class="st">ISO string</span><span class="sd">Waktu publikasi format ISO 8601 (UTC). Gunakan <code style="font-size:11px;color:#67e8f9;background:rgba(6,182,212,0.1);padding:1px 4px;border-radius:3px">new Date(article.date)</code> untuk parse</span></div>
+          <div class="schema-row"><span class="sf">timeAgo</span><span class="st">string</span><span class="sd">Waktu relatif yang mudah dibaca: <code style="font-size:11px;color:#67e8f9;background:rgba(6,182,212,0.1);padding:1px 4px;border-radius:3px">"2h ago"</code>, <code style="font-size:11px;color:#67e8f9;background:rgba(6,182,212,0.1);padding:1px 4px;border-radius:3px">"3d ago"</code></span></div>
+        </div>
+        <div class="info-box info">
+          <span class="ib-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span>
+          <span class="ib-text"><strong>Catatan:</strong> Konten artikel (judul, deskripsi) berasal dari sumber berbahasa Inggris (Soompi, Koreaboo, Google News). Teks ini tidak diterjemahkan karena merupakan konten berita asli dari penerbit.</span>
+        </div>
+      </section>
+
+      <!-- TRENDING SCHEMA -->
+      <section class="section" id="schema-trending">
+        <h2 class="section-title"><span class="section-dot"></span>Skema Objek Trending</h2>
+        <div class="schema-box">
+          <div class="schema-row"><span class="sf">rank</span><span class="st">integer</span><span class="sd">Posisi 1–12 dalam daftar trending</span></div>
+          <div class="schema-row"><span class="sf">keyword</span><span class="st">string</span><span class="sd">Kata kunci K-pop / nama artis yang sedang trending</span></div>
+          <div class="schema-row"><span class="sf">trend</span><span class="st">string</span><span class="sd"><code style="font-size:11px;color:#67e8f9;background:rgba(6,182,212,0.1);padding:1px 4px;border-radius:3px">"up"</code> atau <code style="font-size:11px;color:#67e8f9;background:rgba(6,182,212,0.1);padding:1px 4px;border-radius:3px">"stable"</code> — arah tren</span></div>
+          <div class="schema-row"><span class="sf">count</span><span class="st">integer</span><span class="sd">Perkiraan jumlah pencarian/mention (indikatif, bukan angka pasti)</span></div>
+        </div>
+      </section>
+
+      <!-- STATUS CODES -->
+      <section class="section" id="status-codes">
+        <h2 class="section-title"><span class="section-dot"></span>Kode HTTP Status</h2>
+        <div class="status-grid">
+          <div class="sc-card">
+            <span class="sc-code s200">200</span>
+            <div class="sc-info"><h4>OK</h4><p>Permintaan berhasil. <code style="font-size:10.5px;color:var(--cyan);background:rgba(6,182,212,0.1);padding:1px 4px;border-radius:3px">success: true</code>, data dikembalikan.</p></div>
+          </div>
+          <div class="sc-card">
+            <span class="sc-code s400">400</span>
+            <div class="sc-info"><h4>Bad Request</h4><p>Parameter wajib tidak diisi (misal: tidak ada <code style="font-size:10.5px;color:var(--cyan)">q</code> di /search).</p></div>
+          </div>
+          <div class="sc-card">
+            <span class="sc-code s404">404</span>
+            <div class="sc-info"><h4>Not Found</h4><p>Path endpoint tidak ditemukan. Cek kembali URL kamu.</p></div>
+          </div>
+          <div class="sc-card">
+            <span class="sc-code s500">500</span>
+            <div class="sc-info"><h4>Server Error</h4><p>Scraping gagal atau terjadi error internal. Coba lagi sebentar.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- JS EXAMPLES -->
+      <section class="section" id="code-js">
+        <h2 class="section-title"><span class="section-dot"></span>Integrasi JavaScript</h2>
+        <div class="code-block">
+          <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#fcd34d"></span>Client VyBrowse Lengkap</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+          <pre><span class="cmt">// vybrowse-client.js — drop-in API client</span>
+<span class="kw">const</span> VyBrowse = {
+  base: <span class="str">'https://your-domain.vercel.app'</span>,
+
+  <span class="kw">async</span> cari(query, category = <span class="str">''</span>, page = <span class="num">1</span>) {
+    <span class="kw">const</span> p = <span class="kw">new</span> URLSearchParams();
+    <span class="kw">if</span> (query)    p.set(<span class="str">'q'</span>, query);
+    <span class="kw">if</span> (category) p.set(<span class="str">'category'</span>, category);
+    p.set(<span class="str">'page'</span>, page);
+    <span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">`${this.base}/api/search?${p}`</span>);
+    <span class="kw">if</span> (!res.ok) <span class="kw">throw new</span> Error(<span class="str">`HTTP ${res.status}`</span>);
+    <span class="kw">return</span> res.json();
+  },
+
+  <span class="kw">async</span> berita(category = <span class="str">''</span>, page = <span class="num">1</span>, limit = <span class="num">12</span>) {
+    <span class="kw">const</span> p = <span class="kw">new</span> URLSearchParams({ category, page, limit });
+    <span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">`${this.base}/api/news?${p}`</span>);
+    <span class="kw">return</span> res.json();
+  },
+
+  <span class="kw">async</span> trending() {
+    <span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">`${this.base}/api/trending`</span>);
+    <span class="kw">return</span> res.json();
+  },
+
+  <span class="kw">async</span> kategori() {
+    <span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">`${this.base}/api/categories`</span>);
+    <span class="kw">return</span> res.json();
+  }
+};
+
+<span class="cmt">// Cara pakai:</span>
+<span class="kw">const</span> hasil   = <span class="kw">await</span> VyBrowse.cari(<span class="str">'aespa'</span>);
+<span class="kw">const</span> comeback = <span class="kw">await</span> VyBrowse.berita(<span class="str">'Comeback'</span>, <span class="num">1</span>, <span class="num">5</span>);
+<span class="kw">const</span> trending = <span class="kw">await</span> VyBrowse.trending();</pre>
+        </div>
+      </section>
+
+      <!-- WHATSAPP BOT -->
+      <section class="section" id="code-whatsapp">
+        <h2 class="section-title"><span class="section-dot"></span>Integrasi Bot WhatsApp</h2>
+        <p style="color:var(--t2);font-size:13.5px;margin-bottom:1.2rem;line-height:1.7">Kompatibel dengan Baileys, whatsapp-web.js, atau library WhatsApp berbasis Node.js lainnya.</p>
+        <div class="code-block">
+          <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#22c55e"></span>whatsapp-web.js + VyBrowse</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+          <pre><span class="kw">const</span> axios    = require(<span class="str">'axios'</span>);
+<span class="kw">const</span> BASE_URL = <span class="str">'https://your-domain.vercel.app'</span>;
+
+<span class="cmt">// Handler perintah — jalankan di dalam client.on('message')</span>
+<span class="kw">async function</span> handlePerintahKpop(msg) {
+  <span class="kw">const</span> body = msg.body.trim();
+
+  <span class="cmt">// !kpop aespa → cari berita</span>
+  <span class="kw">if</span> (body.startsWith(<span class="str">'!kpop '</span>)) {
+    <span class="kw">const</span> query = body.slice(<span class="num">6</span>).trim();
+    <span class="kw">const</span> { data } = <span class="kw">await</span> axios.get(
+      <span class="str">`${BASE_URL}/api/search?q=${encodeURIComponent(query)}`</span>
+    );
+    <span class="kw">if</span> (!data.success || !data.data.length) {
+      <span class="kw">return</span> msg.reply(<span class="str">'Tidak ada hasil untuk: '</span> + query);
+    }
+    <span class="kw">const</span> top3 = data.data.slice(<span class="num">0</span>, <span class="num">3</span>);
+    <span class="kw">const</span> balasan = top3.map((a, i) =>
+      <span class="str">`*${i+1}. ${a.title}*\n`</span> +
+      <span class="str">`${a.description}\n`</span> +
+      <span class="str">`[${a.source} · ${a.timeAgo}] ${a.category}\n`</span> +
+      <span class="str">`${a.url}`</span>
+    ).join(<span class="str">'\n\n'</span>);
+    <span class="kw">return</span> msg.reply(<span class="str">`*Berita KWave — ${query}*\n\n${balasan}`</span>);
+  }
+
+  <span class="cmt">// !trending → kata kunci trending teratas</span>
+  <span class="kw">if</span> (body === <span class="str">'!trending'</span>) {
+    <span class="kw">const</span> { data } = <span class="kw">await</span> axios.get(<span class="str">`${BASE_URL}/api/trending`</span>);
+    <span class="kw">const</span> list = data.data.slice(<span class="num">0</span>, <span class="num">10</span>).map(t =>
+      <span class="str">`${t.rank}. *${t.keyword}* ${t.trend === 'up' ? '↑' : '→'} ${t.count.toLocaleString('id-ID')}`</span>
+    ).join(<span class="str">'\n'</span>);
+    <span class="kw">return</span> msg.reply(<span class="str">`*K-pop Trending Sekarang*\n\n${list}`</span>);
+  }
+
+  <span class="cmt">// !comeback → berita comeback terbaru</span>
+  <span class="kw">if</span> (body === <span class="str">'!comeback'</span>) {
+    <span class="kw">const</span> { data } = <span class="kw">await</span> axios.get(
+      <span class="str">`${BASE_URL}/api/news?category=Comeback&limit=3`</span>
+    );
+    <span class="kw">const</span> list = data.data.map(a =>
+      <span class="str">`• *${a.title}*\n  ${a.url}`</span>
+    ).join(<span class="str">'\n\n'</span>);
+    <span class="kw">return</span> msg.reply(<span class="str">`*Comeback Terbaru*\n\n${list}`</span>);
+  }
+}
+
+<span class="cmt">// Daftarkan perintah</span>
+client.on(<span class="str">'message'</span>, <span class="kw">async</span> msg => {
+  <span class="kw">if</span> ([<span class="str">'!kpop'</span>, <span class="str">'!trending'</span>, <span class="str">'!comeback'</span>].some(c => msg.body.startsWith(c))) {
+    <span class="kw">await</span> handlePerintahKpop(msg);
+  }
+});</pre>
+        </div>
+        <div class="code-block">
+          <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#22c55e"></span>Referensi Perintah Bot</span></div>
+          <pre><span class="cmt">!kpop aespa        → 3 artikel berita teratas untuk "aespa"</span>
+<span class="cmt">!kpop BTS concert  → Cari berita "BTS concert"</span>
+<span class="cmt">!trending          → 10 kata kunci K-pop paling trending</span>
+<span class="cmt">!comeback          → 3 berita comeback terbaru</span></pre>
+        </div>
+      </section>
+
+      <!-- PYTHON -->
+      <section class="section" id="code-python">
+        <h2 class="section-title"><span class="section-dot"></span>Integrasi Python</h2>
+        <div class="code-block">
+          <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#86efac"></span>Python — requests</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+          <pre><span class="kw">import</span> requests
+
+BASE = <span class="str">'https://your-domain.vercel.app'</span>
+
+<span class="kw">def</span> cari_kpop(query, category=<span class="str">''</span>, page=<span class="num">1</span>):
+    params = {<span class="str">'q'</span>: query, <span class="str">'category'</span>: category, <span class="str">'page'</span>: page}
+    res = requests.get(<span class="str">f'{BASE}/api/search'</span>, params=params, timeout=<span class="num">10</span>)
+    res.raise_for_status()
+    <span class="kw">return</span> res.json()
+
+<span class="kw">def</span> ambil_trending():
+    res = requests.get(<span class="str">f'{BASE}/api/trending'</span>, timeout=<span class="num">10</span>)
+    <span class="kw">return</span> res.json()[<span class="str">'data'</span>]
+
+<span class="kw">def</span> ambil_berita(category=<span class="str">''</span>, limit=<span class="num">10</span>):
+    res = requests.get(<span class="str">f'{BASE}/api/news'</span>,
+      params={<span class="str">'category'</span>: category, <span class="str">'limit'</span>: limit}, timeout=<span class="num">10</span>)
+    <span class="kw">return</span> res.json()[<span class="str">'data'</span>]
+
+<span class="cmt"># Contoh penggunaan</span>
+hasil = cari_kpop(<span class="str">'aespa'</span>, category=<span class="str">'Comeback'</span>)
+<span class="kw">for</span> artikel <span class="kw">in</span> hasil[<span class="str">'data'</span>]:
+    print(<span class="str">f"[{artikel['source']}] {artikel['title']}"</span>)
+    print(<span class="str">f"  {artikel['url']}\n"</span>)
+
+trending = ambil_trending()
+<span class="kw">for</span> t <span class="kw">in</span> trending[:5]:
+    print(<span class="str">f"#{t['rank']} {t['keyword']} ({t['count']:,} mention)"</span>)</pre>
+        </div>
+      </section>
+
+      <!-- CURL REFERENCE -->
+      <section class="section" id="code-curl">
+        <h2 class="section-title"><span class="section-dot"></span>Referensi cURL Lengkap</h2>
+        <div class="code-block">
+          <div class="cb-header"><span class="cb-lang"><span class="cb-lang-dot" style="background:#22c55e"></span>Semua Endpoint — cURL</span><button class="copy-btn" onclick="copyBlock(this)">Salin</button></div>
+          <pre><span class="cmt">##################################
+# VyBrowse API — Referensi cURL
+##################################</span>
+
+BASE=<span class="str">"https://your-domain.vercel.app"</span>
+
+<span class="cmt">## 1. Cari berita berdasarkan kata kunci</span>
+curl -s <span class="str">"$BASE/api/search?q=aespa"</span>
+
+<span class="cmt">## 2. Cari dengan filter kategori</span>
+curl -s <span class="str">"$BASE/api/search?q=BTS&category=Concert"</span>
+
+<span class="cmt">## 3. Cari halaman 2</span>
+curl -s <span class="str">"$BASE/api/search?q=BLACKPINK&page=2"</span>
+
+<span class="cmt">## 4. Feed berita terbaru (semua kategori)</span>
+curl -s <span class="str">"$BASE/api/news"</span>
+
+<span class="cmt">## 5. Berita terbaru — Comeback saja</span>
+curl -s <span class="str">"$BASE/api/news?category=Comeback"</span>
+
+<span class="cmt">## 6. Berita MV — 5 per halaman, halaman 2</span>
+curl -s <span class="str">"$BASE/api/news?category=MV&page=2&limit=5"</span>
+
+<span class="cmt">## 7. Kata kunci trending</span>
+curl -s <span class="str">"$BASE/api/trending"</span>
+
+<span class="cmt">## 8. Daftar semua kategori</span>
+curl -s <span class="str">"$BASE/api/categories"</span>
+
+<span class="cmt">## 9. Pretty print dengan jq</span>
+curl -s <span class="str">"$BASE/api/search?q=aespa"</span> | jq <span class="str">'.data[] | {title, source, category, timeAgo}'</span>
+
+<span class="cmt">## 10. Ambil judul saja</span>
+curl -s <span class="str">"$BASE/api/news"</span> | jq -r <span class="str">'.data[].title'</span>
+
+<span class="cmt">## 11. Cek hasMore untuk paginasi</span>
+curl -s <span class="str">"$BASE/api/news?page=1"</span> | jq <span class="str">'{total, hasMore, page}'</span></pre>
+        </div>
+      </section>
+
+    </div><!-- /content-inner -->
+  </main>
+</div>
+
+<script>
+  const base = window.location.origin;
+  document.getElementById('baseUrlDisplay').textContent = base;
+
+  document.querySelectorAll('pre').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/https:\/\/your-domain\.vercel\.app/g,
+      '<span style="color:#67e8f9">' + base + '</span>');
+  });
+
+  document.querySelectorAll('.try-btn').forEach(btn => {
+    const href = btn.getAttribute('href');
+    if (href && href.startsWith('/')) btn.href = base + href;
+  });
+
+  function copyBaseUrl() {
+    navigator.clipboard.writeText(base).then(() => {
+      const btn = document.querySelector('.copy-url-btn');
+      btn.textContent = 'Disalin!';
+      setTimeout(() => btn.textContent = 'Salin', 2000);
+    });
+  }
+
+  function switchTab(btn, panelId) {
+    const parent = btn.closest('.ep-body') || btn.closest('.section');
+    if (!parent) return;
+    parent.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    parent.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const panel = document.getElementById(panelId);
+    if (panel) panel.classList.add('active');
+  }
+
+  function copyBlock(btn) {
+    const pre = btn.closest('.code-block').querySelector('pre');
+    const text = pre.innerText || pre.textContent;
+    navigator.clipboard.writeText(text.trim()).then(() => {
+      btn.textContent = 'Disalin!';
+      btn.classList.add('ok');
+      setTimeout(() => { btn.textContent = 'Salin'; btn.classList.remove('ok'); }, 2000);
+    });
+  }
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        document.querySelectorAll('.sb-link').forEach(l => {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });
+
+  document.querySelectorAll('[id]').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

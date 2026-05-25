@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Allow: /apidoc
+Allow: /api/trending
+Allow: /api/categories
+Disallow: /api/search
+Disallow: /api/news
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+Sitemap: https://vybrowse.replit.app/sitemap.xml
